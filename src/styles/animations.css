@@ -1,0 +1,88 @@
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 400% 400%;
+  animation: gradient-x 15s ease infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.music-note {
+  position: absolute;
+  color: #FFD700;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.music-note-1 { top: 10%; left: 5%; }
+.music-note-2 { top: 30%; right: 10%; }
+.music-note-3 { bottom: 20%; left: 15%; }
+.music-note-4 { bottom: 40%; right: 20%; }
+
+@keyframes pulse-glow {
+  0% { opacity: 0.7; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.7; }
+}
+
+.card-neon-glow {
+  position: relative;
+}
+
+.card-neon-glow::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  background: linear-gradient(to right, #00DDEB, #FF69B4, #7B3FE4);
+  border-radius: inherit;
+  opacity: 0.7;
+  transition: opacity 0.5s ease, blur 0.5s ease;
+  filter: blur(8px);
+}
+
+.card-neon-glow:hover::before {
+  opacity: 1;
+  filter: blur(12px);
+  animation: pulse-glow 2s infinite;
+}
+
+.card-neon-glow-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.dark .card-neon-glow-content {
+  background: rgba(26, 34, 56, 0.95);
+}
